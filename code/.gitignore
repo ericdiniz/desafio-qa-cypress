@@ -1,0 +1,23 @@
+# Ignorar a pasta node_modules
+node_modules/
+
+# Ignorar arquivos de configuração local (se houver)
+.env
+.env.local
+
+# Ignorar pastas de logs e relatórios
+cypress/logs/
+cypress/screenshots/
+cypress/videos/
+
+# Ignorar arquivos de cache do npm
+.npm
+npm-debug.log*
+
+# Ignorar arquivos de configuração do IDE (opcional)
+.vscode/
+.idea/
+
+# Ignorar arquivos de sistema (opcional)
+.DS_Store
+Thumbs.db
