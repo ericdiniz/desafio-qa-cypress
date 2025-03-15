@@ -1,15 +1,14 @@
 function gerarNomeUnico(nomeBase) {
-    let contador = localStorage.getItem('contadorContas');
+    return new Cypress.Promise((resolve) => {
+        cy.task('lerContador').then((contadorData) => {
+            let contador = contadorData.contador;
+            contador += 1;
 
-    if (!contador) {
-        contador = 1013;
-    } else {
-        contador = parseInt(contador, 10) + 1;
-    }
-
-    localStorage.setItem('contadorContas', contador);
-
-    return `${nomeBase} ${contador}`;
+            cy.task('atualizarContador', { contador }).then(() => {
+                resolve(`${nomeBase} ${contador}`);
+            });
+        });
+    });
 }
 
 module.exports = gerarNomeUnico;

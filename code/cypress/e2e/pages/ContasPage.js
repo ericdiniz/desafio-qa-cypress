@@ -15,7 +15,7 @@ class ContasPage {
     }
 
     alterarNomeConta(nomeAntigo) {
-        const numeroAleatorio = Math.floor(Math.random() * 100);
+        const numeroAleatorio = Math.floor(Math.random() * 1000);
         const caracteresEspeciais = ['@', '#', '$', '%', '&'];
         const caractereAleatorio = caracteresEspeciais[Math.floor(Math.random() * caracteresEspeciais.length)];
         const nomeNovo = `Editado ${numeroAleatorio}${caractereAleatorio}`;

@@ -1,10 +1,13 @@
-// cypress/e2e/specs/contas.cy.js
 import ContasPage from '../pages/ContasPage';
 import LoginPage from '../pages/LoginPage';
+import MovimentacoesPage from '../pages/MovimentacoesPage';
 import gerarNomeUnico from '../support/incrementarNomeDaConta';
-
 describe('Fluxo de Gestão de Contas', () => {
     const nomeBase = 'Conta Teste';
+
+    before(() => {
+        cy.task('atualizarContador', { contador: 400 });
+    });
 
     beforeEach(() => {
         LoginPage.visit();
@@ -14,13 +17,14 @@ describe('Fluxo de Gestão de Contas', () => {
     it('Deve adicionar no mínimo 2 contas', () => {
         ContasPage.visit();
 
-        const nomeConta1 = gerarNomeUnico(nomeBase);
-        const nomeConta2 = gerarNomeUnico(nomeBase);
-
-        ContasPage.adicionarConta(nomeConta1);
-        ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
-        ContasPage.adicionarConta(nomeConta2);
-        ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
+        gerarNomeUnico(nomeBase).then((nomeConta1) => {
+            gerarNomeUnico(nomeBase).then((nomeConta2) => {
+                ContasPage.adicionarConta(nomeConta1);
+                ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
+                ContasPage.adicionarConta(nomeConta2);
+                ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
+            });
+        });
     });
 
     it('Deve listar todas as contas', () => {
@@ -30,26 +34,42 @@ describe('Fluxo de Gestão de Contas', () => {
 
     it('Deve alterar o nome de uma conta', () => {
         ContasPage.visit();
-        const nomeConta = gerarNomeUnico(nomeBase);
-        const nomeEditado = ContasPage.alterarNomeConta(nomeConta);
-        cy.contains('table tbody tr', nomeEditado).should('be.visible');
+
+        gerarNomeUnico(nomeBase).then((nomeConta) => {
+            ContasPage.adicionarConta(nomeConta);
+            ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
+
+            const nomeEditado = ContasPage.alterarNomeConta(nomeConta);
+            cy.contains('table tbody tr', nomeEditado).should('be.visible');
+        });
     });
 
     it('Deve tentar adicionar uma conta com o nome já existente', () => {
         ContasPage.visit();
-        const nomeConta = gerarNomeUnico(nomeBase);
-        ContasPage.adicionarConta(nomeConta);
-        ContasPage.adicionarConta(nomeConta);
-        ContasPage.validarMensagemErro('Já existe uma conta com esse nome!');
+
+        gerarNomeUnico(nomeBase).then((nomeConta) => {
+            ContasPage.adicionarConta(nomeConta);
+            ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
+            ContasPage.adicionarConta(nomeConta);
+            ContasPage.validarMensagemErro('Já existe uma conta com esse nome!');
+        });
     });
 
     it('Deve tentar excluir uma conta vinculada a uma movimentação', () => {
         ContasPage.visit();
-        cy.pause();
-        const nomeConta = gerarNomeUnico(nomeBase);
-        ContasPage.excluirConta(nomeConta);
-        ContasPage.validarMensagemErro('Conta em uso na movimentações');
+
+        gerarNomeUnico(nomeBase).then((nomeConta) => {
+            ContasPage.adicionarConta(nomeConta);
+            ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
+
+            MovimentacoesPage.visit();
+            MovimentacoesPage.criarMovimentacao('Salário', '1000', nomeConta, 'Empresa XYZ');
+            MovimentacoesPage.validarMensagemSucesso('Movimentação adicionada com sucesso!');
+
+            ContasPage.visit();
+            ContasPage.excluirConta(nomeConta);
+
+            ContasPage.validarMensagemErro('Conta em uso na movimentações');
+        });
     });
-
-
 });
