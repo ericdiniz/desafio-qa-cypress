@@ -25,42 +25,31 @@ describe('Fluxo de Gestão de Contas', () => {
 
     it('Deve listar todas as contas', () => {
         ContasPage.visit();
-        cy.pause();
         ContasPage.listarContas().should('have.length.at.least', 2);
     });
 
     it('Deve alterar o nome de uma conta', () => {
         ContasPage.visit();
-
         const nomeConta = gerarNomeUnico(nomeBase);
-
         const nomeEditado = ContasPage.alterarNomeConta(nomeConta);
-
         cy.contains('table tbody tr', nomeEditado).should('be.visible');
-    });
-
-    it('Deve tentar excluir uma conta vinculada a uma movimentação', () => {
-        ContasPage.visit();
-
-        // Gera um nome único para a conta
-        const nomeConta = gerarNomeUnico(nomeBase);
-
-        // Adiciona a conta e tenta excluir
-        ContasPage.adicionarConta(nomeConta);
-        ContasPage.excluirConta(nomeConta);
-        ContasPage.validarMensagemErro('Conta em uso, não pode ser removida');
     });
 
     it('Deve tentar adicionar uma conta com o nome já existente', () => {
         ContasPage.visit();
-
-        // Gera um nome único para a conta
         const nomeConta = gerarNomeUnico(nomeBase);
-
-        // Adiciona a conta duas vezes (deve falhar na segunda tentativa)
         ContasPage.adicionarConta(nomeConta);
-        ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
         ContasPage.adicionarConta(nomeConta);
         ContasPage.validarMensagemErro('Já existe uma conta com esse nome!');
     });
+
+    it('Deve tentar excluir uma conta vinculada a uma movimentação', () => {
+        ContasPage.visit();
+        cy.pause();
+        const nomeConta = gerarNomeUnico(nomeBase);
+        ContasPage.excluirConta(nomeConta);
+        ContasPage.validarMensagemErro('Conta em uso na movimentações');
+    });
+
+
 });

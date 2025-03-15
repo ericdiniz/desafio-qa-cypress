@@ -2,7 +2,7 @@ function gerarNomeUnico(nomeBase) {
     let contador = localStorage.getItem('contadorContas');
 
     if (!contador) {
-        contador = 10;
+        contador = 1013;
     } else {
         contador = parseInt(contador, 10) + 1;
     }

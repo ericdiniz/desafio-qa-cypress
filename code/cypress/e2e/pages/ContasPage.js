@@ -34,7 +34,7 @@ class ContasPage {
     excluirConta(nome) {
         cy.contains('table tbody tr', nome)
             .within(() => {
-                cy.get('a').contains('Excluir').click();
+                cy.get('[href*="/removerConta"] > .glyphicon').click();
             });
     }
 
