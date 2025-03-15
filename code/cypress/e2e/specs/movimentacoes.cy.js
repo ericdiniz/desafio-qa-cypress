@@ -76,12 +76,8 @@ describe('Fluxo de Criar Movimentação', () => {
 
     it('Deve validar o campo valor', () => {
         MovimentacoesPage.visit();
-
-        // Preenche o campo valor com um valor inválido
         cy.get('#valor').type('valor inválido');
         cy.get('.btn').contains('Salvar').click();
-
-        // Verifica a mensagem de erro na UI
         MovimentacoesPage.validarCampoValorInvalido();
     });
 });

@@ -18,7 +18,6 @@ describe('Resumo Mensal', () => {
 
     it('Deve excluir uma movimentação', () => {
         ResumoMensalPage.visit();
-        cy.pause()
         ResumoMensalPage.filtrarMovimentacoes('Março', '2025');
         ResumoMensalPage.excluirMovimentacao();
         ResumoMensalPage.validarMensagemSucesso('Movimentação removida com sucesso!');
