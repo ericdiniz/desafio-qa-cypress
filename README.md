@@ -47,4 +47,9 @@ npx cypress run
 
 ## 4. Resultados
 
-Basta ver os vídeos na pasta resultados
+Os resultados estão nas pastas reports e videos dentro da pasta code, segue o caminho:
+
+```text
+Code/cypress/reports
+Code/cypress/videos
+```
