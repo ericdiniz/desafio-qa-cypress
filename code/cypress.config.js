@@ -16,6 +16,7 @@ module.exports = defineConfig({
 
   // Configuração do Cypress E2E
   e2e: {
+    browser: 'chromium', // Define o Chromium como navegador padrão
     video: true, // Ativa a gravação de vídeos
     videoCompression: 32, // Define a qualidade do vídeo (opcional)
     setupNodeEvents(on, config) {

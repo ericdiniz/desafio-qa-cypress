@@ -8,7 +8,7 @@ node_modules/
 # Ignorar pastas de logs e relatórios
 cypress/logs/
 cypress/screenshots/
-cypress/videos/
+
 
 # Ignorar arquivos de cache do npm
 .npm
