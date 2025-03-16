@@ -9,7 +9,7 @@ describe('Fluxo de Login', () => {
             usuarios = data;
 
             const emailAtual = usuarios.email;
-            const numeroAtual = parseInt(emailAtual.match(/\d+/)[0], 10);
+            const numeroAtual = parseInt(emailAtual.match(/\d+/)[0], 20);
             const novoNumero = numeroAtual + 1;
             novoEmail = emailAtual.replace(/\d+/, novoNumero);
 

@@ -7,7 +7,7 @@ describe('Fluxo de Criar Movimentação', () => {
     const nomeBase = 'Conta Movimentações';
 
     before(() => {
-        cy.task('atualizarContador', { contador: 80 });
+        cy.task('atualizarContador', { contador: 240 });
     });
 
     beforeEach(() => {

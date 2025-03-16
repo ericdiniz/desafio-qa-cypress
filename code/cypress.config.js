@@ -3,7 +3,21 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = defineConfig({
+  // Configuração do Mochawesome Reporter
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/reports',
+    overwrite: false,
+    html: true,
+    json: true,
+    embeddedScreenshots: true, // Inclui screenshots no relatório
+    inlineAssets: true, // Inclui vídeos e outros assets diretamente no relatório
+  },
+
+  // Configuração do Cypress E2E
   e2e: {
+    video: true, // Ativa a gravação de vídeos
+    videoCompression: 32, // Define a qualidade do vídeo (opcional)
     setupNodeEvents(on, config) {
       on('task', {
         readUsuariosJson() {

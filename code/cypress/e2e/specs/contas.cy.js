@@ -6,7 +6,7 @@ describe('Fluxo de Gestão de Contas', () => {
     const nomeBase = 'Conta Teste';
 
     before(() => {
-        cy.task('atualizarContador', { contador: 400 });
+        cy.task('atualizarContador', { contador: 290 });
     });
 
     beforeEach(() => {
@@ -63,11 +63,11 @@ describe('Fluxo de Gestão de Contas', () => {
             ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
 
             MovimentacoesPage.visit();
-            MovimentacoesPage.criarMovimentacao('Salário', '1000', nomeConta, 'Empresa XYZ');
+            MovimentacoesPage.criarMovimentacao('Receita', 'Salário', '1000', 'Conta Teste 315', 'Empresa XYZ', '12/03/2025', '12/03/2025', 'Pago');
             MovimentacoesPage.validarMensagemSucesso('Movimentação adicionada com sucesso!');
 
             ContasPage.visit();
-            ContasPage.excluirConta(nomeConta);
+            ContasPage.excluirConta('Conta Teste 315');
 
             ContasPage.validarMensagemErro('Conta em uso na movimentações');
         });

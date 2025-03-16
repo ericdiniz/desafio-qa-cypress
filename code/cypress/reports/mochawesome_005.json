@@ -1,0 +1,202 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-16T12:41:23.668Z",
+    "end": "2025-03-16T12:41:48.255Z",
+    "duration": 24587,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "2cce6702-8296-487c-a7ad-f1fcfb4e1865",
+      "title": "",
+      "fullFile": "cypress/e2e/specs/movimentacoes.cy.js",
+      "file": "cypress/e2e/specs/movimentacoes.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3b90d80b-75c9-4f86-a53a-8039e391c8bb",
+          "title": "Fluxo de Criar Movimentação",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve criar no mínimo 2 movimentações (Receita e Despesa)",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações (Receita e Despesa)",
+              "timedOut": null,
+              "duration": 5813,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\n(0, _incrementarNomeDaConta.default)(nomeBase).then(nomeConta1 => {\n  _ContasPage.default.adicionarConta(nomeConta1);\n  _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n});\n_MovimentacoesPage.default.visit();\n_MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', 'Conta Teste 315', 'Empresa XYZ', '12/03/2025', '12/03/2025', 'Pago');\n_MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n_MovimentacoesPage.default.visit();\n_MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', 'Conta Teste 315', 'Proprietário', '15/03/2025', '15/03/2025', 'Pendente');\n_MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');",
+              "err": {},
+              "uuid": "857bf7d2-a313-40b7-a56e-28392b5e7d2a",
+              "parentUUID": "3b90d80b-75c9-4f86-a53a-8039e391c8bb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve criar no mínimo 2 movimentações para cada conta",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações para cada conta",
+              "timedOut": null,
+              "duration": 4638,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\n_MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', 'Conta Movimentações 701', 'Empresa XYZ', '15/03/2025', '15/03/2025', 'Pago');\n_MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n_MovimentacoesPage.default.visit();\n_MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', 'Conta Movimentações 705', 'Proprietário', '10/03/2025', '10/03/2025', 'Pendente');\n_MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');",
+              "err": {},
+              "uuid": "5f5074bc-f0b3-4b64-9b6b-26ab41d081ea",
+              "parentUUID": "3b90d80b-75c9-4f86-a53a-8039e391c8bb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve criar no mínimo 2 movimentações para cada situação",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações para cada situação",
+              "timedOut": null,
+              "duration": 4686,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\n_MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', 'Conta Teste 315', 'Empresa XYZ', '15/03/2025', '15/03/2025', 'Pago');\n_MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n_MovimentacoesPage.default.visit();\n_MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', 'Conta Teste 335', 'Proprietário', '10/03/2025', '10/03/2025', 'Pendente');\n_MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');",
+              "err": {},
+              "uuid": "4bd7252c-5085-4aef-970e-6b707aab4216",
+              "parentUUID": "3b90d80b-75c9-4f86-a53a-8039e391c8bb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve criar no mínimo 2 movimentações para meses diferentes",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações para meses diferentes",
+              "timedOut": null,
+              "duration": 4643,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\n_MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', 'Conta Movimentações 611', 'Empresa XYZ', '15/03/2025', '15/03/2025', 'Pago');\n_MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n_MovimentacoesPage.default.visit();\n_MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', 'Conta Movimentações 601', 'Proprietário', '15/02/2025', '15/02/2025', 'Pendente');\n_MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');",
+              "err": {},
+              "uuid": "4385344a-d651-43bd-a862-0b4586c78bcb",
+              "parentUUID": "3b90d80b-75c9-4f86-a53a-8039e391c8bb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar os campos de data",
+              "fullTitle": "Fluxo de Criar Movimentação Deve validar os campos de data",
+              "timedOut": null,
+              "duration": 2107,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\ncy.get('#data_transacao').type('data inválida');\ncy.get('#data_pagamento').type('data inválida');\ncy.get('.btn').contains('Salvar').click();\ncy.contains('Data da Movimentação inválida (DD/MM/YYYY)').should('be.visible');\ncy.contains('Data da Movimentação deve ser menor ou igual à data atual').should('be.visible');\ncy.contains('Data do pagamento inválida (DD/MM/YYYY)').should('be.visible');",
+              "err": {},
+              "uuid": "e95752c7-4f6f-467a-93c4-8d3a3655386d",
+              "parentUUID": "3b90d80b-75c9-4f86-a53a-8039e391c8bb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar o campo valor",
+              "fullTitle": "Fluxo de Criar Movimentação Deve validar o campo valor",
+              "timedOut": null,
+              "duration": 1808,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\ncy.get('#valor').type('valor inválido');\ncy.get('.btn').contains('Salvar').click();\n_MovimentacoesPage.default.validarCampoValorInvalido();",
+              "err": {},
+              "uuid": "01d62e0f-9797-4481-ac64-4537ecae1c5a",
+              "parentUUID": "3b90d80b-75c9-4f86-a53a-8039e391c8bb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "857bf7d2-a313-40b7-a56e-28392b5e7d2a",
+            "5f5074bc-f0b3-4b64-9b6b-26ab41d081ea",
+            "4bd7252c-5085-4aef-970e-6b707aab4216",
+            "4385344a-d651-43bd-a862-0b4586c78bcb",
+            "e95752c7-4f6f-467a-93c4-8d3a3655386d",
+            "01d62e0f-9797-4481-ac64-4537ecae1c5a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23695,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
