@@ -1,4 +1,3 @@
-// cypress/e2e/pages/LoginPage.js
 class LoginPage {
     visit() {
         cy.visit('https://seubarriga.wcaquino.me/login');
@@ -18,12 +17,20 @@ class LoginPage {
         cy.contains('Entrar').click();
     }
 
+    deslogar() {
+        cy.get(':nth-child(5) > a').click();
+    }
+
     validarMensagemSucesso(mensagem) {
         cy.contains(mensagem).should('be.visible');
     }
 
     validarMensagemErro(mensagem) {
         cy.contains(mensagem).should('be.visible');
+    }
+
+    validarDeslogado() {
+        cy.url().should('include', '/logout');
     }
 }
 

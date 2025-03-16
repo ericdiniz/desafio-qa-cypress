@@ -35,4 +35,11 @@ describe('Fluxo de Login', () => {
         cy.url().should('eq', 'https://seubarriga.wcaquino.me/logar');
         cy.contains(`Bem vindo, ${usuarios.nome}!`).should('be.visible');
     });
+
+    it('Deve deslogar do sistema com sucesso', () => {
+        LoginPage.visit();
+        LoginPage.fazerLogin(novoEmail, usuarios.senha);
+        LoginPage.deslogar();
+        LoginPage.validarDeslogado();
+    });
 });
