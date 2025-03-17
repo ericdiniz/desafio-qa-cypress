@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 2,
+    "pending": 0,
+    "failures": 4,
+    "start": "2025-03-17T21:46:07.080Z",
+    "end": "2025-03-17T21:46:26.144Z",
+    "duration": 19064,
+    "testsRegistered": 6,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "6ae01a65-71f4-459a-ba78-7d6cc76cb1cf",
+      "title": "",
+      "fullFile": "cypress/e2e/specs/movimentacoes.cy.js",
+      "file": "cypress/e2e/specs/movimentacoes.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dc275168-f58d-41c3-8635-0f1e83f6970a",
+          "title": "Fluxo de Criar Movimentação",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve criar no mínimo 2 movimentações (Receita e Despesa)",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações (Receita e Despesa)",
+              "timedOut": null,
+              "duration": 4025,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoConta)(nomeBase).then(nomeConta => {\n  _ContasPage.default.adicionarConta(nomeConta);\n  _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n});\n_MovimentacoesPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao => {\n  _MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', nomeMovimentacao, 'Empresa XYZ', '12/03/2025', '12/03/2025', 'Pago');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n  _MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', nomeMovimentacao, 'Proprietário', '15/03/2025', '15/03/2025', 'Pendente');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n});",
+              "err": {
+                "message": "Error: Conta \"Conta Movimentações 11\" não encontrada no select. Opções disponíveis: Conta Teste 1, Editado 335%, Conta Teste 2, Conta Teste 4, Conta Teste 6, Conta Teste 7, Editado 251@, Conta Teste 11, Editado 866@, Conta Teste 662, Conta Teste 9, Conta Teste 12, Conta Teste 14, Conta Teste 15, Conta Movimentações 17, Conta Movimentações 16, Conta Movimentações 18, Conta Movimentações 19, Conta Movimentações 20, Conta Movimentações 21, Conta Teste 315, Conta Teste 22, Editado 886%, Conta Movimentações 27, Conta Teste 781, Editado 467@, Conta Movimentações 221, Conta Teste 23, Conta Teste 25, Conta Teste 782, Conta Teste 784, Conta Teste 785, Editado 809$, Conta Teste 335, Conta Teste 291, Editado 784#, Conta Teste 292, Conta Teste 294, Conta Teste 295, Conta Movimentações 241, Conta Movimentações 701, Conta Movimentações 705, Conta Movimentações 601, Conta Movimentações 611",
+                "estack": "Error: Conta \"Conta Movimentações 11\" não encontrada no select. Opções disponíveis: Conta Teste 1, Editado 335%, Conta Teste 2, Conta Teste 4, Conta Teste 6, Conta Teste 7, Editado 251@, Conta Teste 11, Editado 866@, Conta Teste 662, Conta Teste 9, Conta Teste 12, Conta Teste 14, Conta Teste 15, Conta Movimentações 17, Conta Movimentações 16, Conta Movimentações 18, Conta Movimentações 19, Conta Movimentações 20, Conta Movimentações 21, Conta Teste 315, Conta Teste 22, Editado 886%, Conta Movimentações 27, Conta Teste 781, Editado 467@, Conta Movimentações 221, Conta Teste 23, Conta Teste 25, Conta Teste 782, Conta Teste 784, Conta Teste 785, Editado 809$, Conta Teste 335, Conta Teste 291, Editado 784#, Conta Teste 292, Conta Teste 294, Conta Teste 295, Conta Movimentações 241, Conta Movimentações 701, Conta Movimentações 705, Conta Movimentações 601, Conta Movimentações 611\n    at Context.eval (webpack://code/./cypress/e2e/pages/MovimentacoesPage.js:20:22)\n    at getRet (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118349:20)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118360:66)\n    at Context.then (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118611:21)\n    at wrapped (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:138862:19)\n    at <unknown> (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:144789:15)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)",
+                "diff": null
+              },
+              "uuid": "6f2ab104-60f7-409c-b15b-c9f81f06b26e",
+              "parentUUID": "dc275168-f58d-41c3-8635-0f1e83f6970a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve criar no mínimo 2 movimentações para cada conta",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações para cada conta",
+              "timedOut": null,
+              "duration": 4754,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoConta)(nomeBase).then(nomeConta1 => {\n  (0, _incrementarNomeDaConta.gerarNomeUnicoConta)(nomeBase).then(nomeConta2 => {\n    _ContasPage.default.adicionarConta(nomeConta1);\n    _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n    _ContasPage.default.adicionarConta(nomeConta2);\n    _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n  });\n});\n_MovimentacoesPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao1 => {\n  (0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao2 => {\n    _MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', nomeMovimentacao1, 'Empresa XYZ', '15/03/2025', '15/03/2025', 'Pago');\n    _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n    _MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', nomeMovimentacao2, 'Proprietário', '10/03/2025', '10/03/2025', 'Pendente');\n    _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n  });\n});",
+              "err": {
+                "message": "Error: Conta \"Conta Movimentações 12\" não encontrada no select. Opções disponíveis: Conta Teste 1, Editado 335%, Conta Teste 2, Conta Teste 4, Conta Teste 6, Conta Teste 7, Editado 251@, Conta Teste 11, Editado 866@, Conta Teste 662, Conta Teste 9, Conta Teste 12, Conta Teste 14, Conta Teste 15, Conta Movimentações 17, Conta Movimentações 16, Conta Movimentações 18, Conta Movimentações 19, Conta Movimentações 20, Conta Movimentações 21, Conta Teste 315, Conta Teste 22, Editado 886%, Conta Movimentações 27, Conta Movimentações 28, Conta Teste 781, Editado 467@, Conta Movimentações 221, Conta Teste 23, Conta Teste 25, Conta Movimentações 29, Conta Teste 782, Conta Teste 784, Conta Teste 785, Editado 809$, Conta Teste 335, Conta Teste 291, Editado 784#, Conta Teste 292, Conta Teste 294, Conta Teste 295, Conta Movimentações 241, Conta Movimentações 701, Conta Movimentações 705, Conta Movimentações 601, Conta Movimentações 611",
+                "estack": "Error: Conta \"Conta Movimentações 12\" não encontrada no select. Opções disponíveis: Conta Teste 1, Editado 335%, Conta Teste 2, Conta Teste 4, Conta Teste 6, Conta Teste 7, Editado 251@, Conta Teste 11, Editado 866@, Conta Teste 662, Conta Teste 9, Conta Teste 12, Conta Teste 14, Conta Teste 15, Conta Movimentações 17, Conta Movimentações 16, Conta Movimentações 18, Conta Movimentações 19, Conta Movimentações 20, Conta Movimentações 21, Conta Teste 315, Conta Teste 22, Editado 886%, Conta Movimentações 27, Conta Movimentações 28, Conta Teste 781, Editado 467@, Conta Movimentações 221, Conta Teste 23, Conta Teste 25, Conta Movimentações 29, Conta Teste 782, Conta Teste 784, Conta Teste 785, Editado 809$, Conta Teste 335, Conta Teste 291, Editado 784#, Conta Teste 292, Conta Teste 294, Conta Teste 295, Conta Movimentações 241, Conta Movimentações 701, Conta Movimentações 705, Conta Movimentações 601, Conta Movimentações 611\n    at Context.eval (webpack://code/./cypress/e2e/pages/MovimentacoesPage.js:20:22)\n    at getRet (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118349:20)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118360:66)\n    at Context.then (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118611:21)\n    at wrapped (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:138862:19)\n    at <unknown> (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:144789:15)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)",
+                "diff": null
+              },
+              "uuid": "5e52a991-0db2-4474-97bb-a65a78cc8221",
+              "parentUUID": "dc275168-f58d-41c3-8635-0f1e83f6970a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve criar no mínimo 2 movimentações para cada situação",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações para cada situação",
+              "timedOut": null,
+              "duration": 2752,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao => {\n  _MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', nomeMovimentacao, 'Empresa XYZ', '15/03/2025', '15/03/2025', 'Pago');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n  _MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', nomeMovimentacao, 'Proprietário', '10/03/2025', '10/03/2025', 'Pendente');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n});",
+              "err": {
+                "message": "Error: Conta \"Conta Movimentações 14\" não encontrada no select. Opções disponíveis: Conta Teste 1, Editado 335%, Conta Teste 2, Conta Teste 4, Conta Teste 6, Conta Teste 7, Editado 251@, Conta Teste 11, Editado 866@, Conta Teste 662, Conta Teste 9, Conta Teste 12, Conta Teste 14, Conta Teste 15, Conta Movimentações 17, Conta Movimentações 16, Conta Movimentações 18, Conta Movimentações 19, Conta Movimentações 20, Conta Movimentações 21, Conta Teste 315, Conta Teste 22, Editado 886%, Conta Movimentações 27, Conta Movimentações 28, Conta Teste 781, Editado 467@, Conta Movimentações 221, Conta Teste 23, Conta Teste 25, Conta Movimentações 29, Conta Teste 782, Conta Teste 784, Conta Teste 785, Editado 809$, Conta Teste 335, Conta Teste 291, Editado 784#, Conta Teste 292, Conta Teste 294, Conta Teste 295, Conta Movimentações 241, Conta Movimentações 701, Conta Movimentações 705, Conta Movimentações 601, Conta Movimentações 611",
+                "estack": "Error: Conta \"Conta Movimentações 14\" não encontrada no select. Opções disponíveis: Conta Teste 1, Editado 335%, Conta Teste 2, Conta Teste 4, Conta Teste 6, Conta Teste 7, Editado 251@, Conta Teste 11, Editado 866@, Conta Teste 662, Conta Teste 9, Conta Teste 12, Conta Teste 14, Conta Teste 15, Conta Movimentações 17, Conta Movimentações 16, Conta Movimentações 18, Conta Movimentações 19, Conta Movimentações 20, Conta Movimentações 21, Conta Teste 315, Conta Teste 22, Editado 886%, Conta Movimentações 27, Conta Movimentações 28, Conta Teste 781, Editado 467@, Conta Movimentações 221, Conta Teste 23, Conta Teste 25, Conta Movimentações 29, Conta Teste 782, Conta Teste 784, Conta Teste 785, Editado 809$, Conta Teste 335, Conta Teste 291, Editado 784#, Conta Teste 292, Conta Teste 294, Conta Teste 295, Conta Movimentações 241, Conta Movimentações 701, Conta Movimentações 705, Conta Movimentações 601, Conta Movimentações 611\n    at Context.eval (webpack://code/./cypress/e2e/pages/MovimentacoesPage.js:20:22)\n    at getRet (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118349:20)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118360:66)\n    at Context.then (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118611:21)\n    at wrapped (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:138862:19)\n    at <unknown> (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:144789:15)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)",
+                "diff": null
+              },
+              "uuid": "78592e1a-4d0f-4603-a696-9f7f51a2dbca",
+              "parentUUID": "dc275168-f58d-41c3-8635-0f1e83f6970a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve criar no mínimo 2 movimentações para meses diferentes",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações para meses diferentes",
+              "timedOut": null,
+              "duration": 2738,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao => {\n  _MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', nomeMovimentacao, 'Empresa XYZ', '15/03/2025', '15/03/2025', 'Pago');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n  _MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', nomeMovimentacao, 'Proprietário', '15/02/2025', '15/02/2025', 'Pendente');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n});",
+              "err": {
+                "message": "Error: Conta \"Conta Movimentações 15\" não encontrada no select. Opções disponíveis: Conta Teste 1, Editado 335%, Conta Teste 2, Conta Teste 4, Conta Teste 6, Conta Teste 7, Editado 251@, Conta Teste 11, Editado 866@, Conta Teste 662, Conta Teste 9, Conta Teste 12, Conta Teste 14, Conta Teste 15, Conta Movimentações 17, Conta Movimentações 16, Conta Movimentações 18, Conta Movimentações 19, Conta Movimentações 20, Conta Movimentações 21, Conta Teste 315, Conta Teste 22, Editado 886%, Conta Movimentações 27, Conta Movimentações 28, Conta Teste 781, Editado 467@, Conta Movimentações 221, Conta Teste 23, Conta Teste 25, Conta Movimentações 29, Conta Teste 782, Conta Teste 784, Conta Teste 785, Editado 809$, Conta Teste 335, Conta Teste 291, Editado 784#, Conta Teste 292, Conta Teste 294, Conta Teste 295, Conta Movimentações 241, Conta Movimentações 701, Conta Movimentações 705, Conta Movimentações 601, Conta Movimentações 611",
+                "estack": "Error: Conta \"Conta Movimentações 15\" não encontrada no select. Opções disponíveis: Conta Teste 1, Editado 335%, Conta Teste 2, Conta Teste 4, Conta Teste 6, Conta Teste 7, Editado 251@, Conta Teste 11, Editado 866@, Conta Teste 662, Conta Teste 9, Conta Teste 12, Conta Teste 14, Conta Teste 15, Conta Movimentações 17, Conta Movimentações 16, Conta Movimentações 18, Conta Movimentações 19, Conta Movimentações 20, Conta Movimentações 21, Conta Teste 315, Conta Teste 22, Editado 886%, Conta Movimentações 27, Conta Movimentações 28, Conta Teste 781, Editado 467@, Conta Movimentações 221, Conta Teste 23, Conta Teste 25, Conta Movimentações 29, Conta Teste 782, Conta Teste 784, Conta Teste 785, Editado 809$, Conta Teste 335, Conta Teste 291, Editado 784#, Conta Teste 292, Conta Teste 294, Conta Teste 295, Conta Movimentações 241, Conta Movimentações 701, Conta Movimentações 705, Conta Movimentações 601, Conta Movimentações 611\n    at Context.eval (webpack://code/./cypress/e2e/pages/MovimentacoesPage.js:20:22)\n    at getRet (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118349:20)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118360:66)\n    at Context.then (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118611:21)\n    at wrapped (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:138862:19)\n    at <unknown> (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:144789:15)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)",
+                "diff": null
+              },
+              "uuid": "d1324e0a-7eeb-41a8-a2c7-13e713b52854",
+              "parentUUID": "dc275168-f58d-41c3-8635-0f1e83f6970a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar os campos de data",
+              "fullTitle": "Fluxo de Criar Movimentação Deve validar os campos de data",
+              "timedOut": null,
+              "duration": 2096,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\ncy.get('#data_transacao').type('data inválida');\ncy.get('#data_pagamento').type('data inválida');\ncy.get('.btn').contains('Salvar').click();\ncy.contains('Data da Movimentação inválida (DD/MM/YYYY)').should('be.visible');\ncy.contains('Data da Movimentação deve ser menor ou igual à data atual').should('be.visible');\ncy.contains('Data do pagamento inválida (DD/MM/YYYY)').should('be.visible');",
+              "err": {},
+              "uuid": "8c9edf62-80ee-4e9e-9775-88467fa9d9ba",
+              "parentUUID": "dc275168-f58d-41c3-8635-0f1e83f6970a",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar o campo valor",
+              "fullTitle": "Fluxo de Criar Movimentação Deve validar o campo valor",
+              "timedOut": null,
+              "duration": 1831,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\ncy.get('#valor').type('valor inválido');\ncy.get('.btn').contains('Salvar').click();\n_MovimentacoesPage.default.validarCampoValorInvalido();",
+              "err": {},
+              "uuid": "9c98cb81-d99b-4e30-8083-4dd27ffab459",
+              "parentUUID": "dc275168-f58d-41c3-8635-0f1e83f6970a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8c9edf62-80ee-4e9e-9775-88467fa9d9ba",
+            "9c98cb81-d99b-4e30-8083-4dd27ffab459"
+          ],
+          "failures": [
+            "6f2ab104-60f7-409c-b15b-c9f81f06b26e",
+            "5e52a991-0db2-4474-97bb-a65a78cc8221",
+            "78592e1a-4d0f-4603-a696-9f7f51a2dbca",
+            "d1324e0a-7eeb-41a8-a2c7-13e713b52854"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18196,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

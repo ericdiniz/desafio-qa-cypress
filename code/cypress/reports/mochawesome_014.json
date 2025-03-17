@@ -1,0 +1,126 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-17T21:01:07.312Z",
+    "end": "2025-03-17T21:01:12.824Z",
+    "duration": 5512,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9f7b4d9e-097c-4517-b361-a4551e7241d5",
+      "title": "",
+      "fullFile": "cypress/e2e/specs/resumoMensal.cy.js",
+      "file": "cypress/e2e/specs/resumoMensal.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fb395294-ec4c-42b1-b4d9-8257206ca960",
+          "title": "Resumo Mensal",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve filtrar as movimentações por mês e ano",
+              "fullTitle": "Resumo Mensal Deve filtrar as movimentações por mês e ano",
+              "timedOut": null,
+              "duration": 2278,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_ResumoMensalPage.default.visit();\n_ResumoMensalPage.default.filtrarMovimentacoes('Março', '2025');\ncy.get('tbody tr').should('have.length.greaterThan', 0);",
+              "err": {},
+              "uuid": "df825dd7-4d03-4619-b885-e0e15eb52e96",
+              "parentUUID": "fb395294-ec4c-42b1-b4d9-8257206ca960",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve excluir uma movimentação",
+              "fullTitle": "Resumo Mensal Deve excluir uma movimentação",
+              "timedOut": null,
+              "duration": 2460,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_ResumoMensalPage.default.visit();\n_ResumoMensalPage.default.filtrarMovimentacoes('Março', '2025');\n_ResumoMensalPage.default.excluirMovimentacao();\n_ResumoMensalPage.default.validarMensagemSucesso('Movimentação removida com sucesso!');",
+              "err": {},
+              "uuid": "4d5e5c8e-310f-4aa9-b063-4bd66bc49182",
+              "parentUUID": "fb395294-ec4c-42b1-b4d9-8257206ca960",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "df825dd7-4d03-4619-b885-e0e15eb52e96",
+            "4d5e5c8e-310f-4aa9-b063-4bd66bc49182"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4738,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

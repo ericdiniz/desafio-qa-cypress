@@ -1,13 +1,10 @@
 import ContasPage from '../pages/ContasPage';
 import LoginPage from '../pages/LoginPage';
 import MovimentacoesPage from '../pages/MovimentacoesPage';
-import gerarNomeUnico from '../support/incrementarNomeDaConta';
+import { gerarNomeUnicoConta } from '../support/incrementarNomeDaConta';
+
 describe('Fluxo de Gestão de Contas', () => {
     const nomeBase = 'Conta Teste';
-
-    before(() => {
-        cy.task('atualizarContador', { contador: 290 });
-    });
 
     beforeEach(() => {
         LoginPage.visit();
@@ -17,8 +14,8 @@ describe('Fluxo de Gestão de Contas', () => {
     it('Deve adicionar no mínimo 2 contas', () => {
         ContasPage.visit();
 
-        gerarNomeUnico(nomeBase).then((nomeConta1) => {
-            gerarNomeUnico(nomeBase).then((nomeConta2) => {
+        gerarNomeUnicoConta(nomeBase).then((nomeConta1) => {
+            gerarNomeUnicoConta(nomeBase).then((nomeConta2) => {
                 ContasPage.adicionarConta(nomeConta1);
                 ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
                 ContasPage.adicionarConta(nomeConta2);
@@ -35,7 +32,7 @@ describe('Fluxo de Gestão de Contas', () => {
     it('Deve alterar o nome de uma conta', () => {
         ContasPage.visit();
 
-        gerarNomeUnico(nomeBase).then((nomeConta) => {
+        gerarNomeUnicoConta(nomeBase).then((nomeConta) => {
             ContasPage.adicionarConta(nomeConta);
             ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
 
@@ -47,7 +44,7 @@ describe('Fluxo de Gestão de Contas', () => {
     it('Deve tentar adicionar uma conta com o nome já existente', () => {
         ContasPage.visit();
 
-        gerarNomeUnico(nomeBase).then((nomeConta) => {
+        gerarNomeUnicoConta(nomeBase).then((nomeConta) => {
             ContasPage.adicionarConta(nomeConta);
             ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
             ContasPage.adicionarConta(nomeConta);
@@ -58,17 +55,16 @@ describe('Fluxo de Gestão de Contas', () => {
     it('Deve tentar excluir uma conta vinculada a uma movimentação', () => {
         ContasPage.visit();
 
-        gerarNomeUnico(nomeBase).then((nomeConta) => {
+        gerarNomeUnicoConta(nomeBase).then((nomeConta) => {
             ContasPage.adicionarConta(nomeConta);
             ContasPage.validarMensagemSucesso('Conta adicionada com sucesso!');
 
             MovimentacoesPage.visit();
-            MovimentacoesPage.criarMovimentacao('Receita', 'Salário', '1000', 'Conta Teste 315', 'Empresa XYZ', '12/03/2025', '12/03/2025', 'Pago');
+            MovimentacoesPage.criarMovimentacao('Receita', 'Salário', '1000', nomeConta, 'Empresa XYZ', '12/03/2025', '12/03/2025', 'Pago');
             MovimentacoesPage.validarMensagemSucesso('Movimentação adicionada com sucesso!');
 
             ContasPage.visit();
-            ContasPage.excluirConta('Conta Teste 315');
-
+            ContasPage.excluirConta(nomeConta);
             ContasPage.validarMensagemErro('Conta em uso na movimentações');
         });
     });

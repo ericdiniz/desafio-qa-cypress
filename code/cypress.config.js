@@ -42,12 +42,13 @@ module.exports = defineConfig({
           return JSON.parse(data);
         },
 
-        atualizarContador({ contador }) {
+        atualizarContador({ contadorContas, contadorMovimentacoes }) {
           const filePath = path.join(__dirname, 'cypress/e2e/fixtures/contador.json');
           const data = fs.readFileSync(filePath, 'utf8');
-          const contadorData = JSON.parse(data);
-          contadorData.contador = contador;
-          fs.writeFileSync(filePath, JSON.stringify(contadorData, null, 2));
+          const contadores = JSON.parse(data);
+          if (contadorContas !== undefined) contadores.contadorContas = contadorContas;
+          if (contadorMovimentacoes !== undefined) contadores.contadorMovimentacoes = contadorMovimentacoes;
+          fs.writeFileSync(filePath, JSON.stringify(contadores, null, 2));
           return null;
         },
       });

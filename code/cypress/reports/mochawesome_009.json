@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 2,
+    "pending": 0,
+    "failures": 4,
+    "start": "2025-03-17T20:51:01.064Z",
+    "end": "2025-03-17T20:51:11.835Z",
+    "duration": 10771,
+    "testsRegistered": 6,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b4cc7ae9-db27-425e-98f7-4cf4c57a9494",
+      "title": "",
+      "fullFile": "cypress/e2e/specs/movimentacoes.cy.js",
+      "file": "cypress/e2e/specs/movimentacoes.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "080ec649-fb32-4558-a3bf-59f4517b6fa1",
+          "title": "Fluxo de Criar Movimentação",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve criar no mínimo 2 movimentações (Receita e Despesa)",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações (Receita e Despesa)",
+              "timedOut": null,
+              "duration": 1469,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\ngerarNomeUnicoConta(nomeBase).then(nomeConta => {\n  _ContasPage.default.adicionarConta(nomeConta);\n  _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n});\n_MovimentacoesPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao => {\n  _MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', nomeMovimentacao, 'Empresa XYZ', '12/03/2025', '12/03/2025', 'Pago');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n  _MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', nomeMovimentacao, 'Proprietário', '15/03/2025', '15/03/2025', 'Pendente');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n});",
+              "err": {
+                "message": "ReferenceError: gerarNomeUnicoConta is not defined",
+                "estack": "ReferenceError: gerarNomeUnicoConta is not defined\n    at Context.eval (webpack://code/./cypress/e2e/specs/movimentacoes.cy.js:16:8)\n    at runnable.fn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:139129:19)\n    at callFn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:157729:21)\n    at Runnable.run (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:157716:7)\n    at <unknown> (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:163646:30)\n    at PassThroughHandlerContext.finallyHandler (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "345def87-4b5c-4245-9e05-79b671e5062c",
+              "parentUUID": "080ec649-fb32-4558-a3bf-59f4517b6fa1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve criar no mínimo 2 movimentações para cada conta",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações para cada conta",
+              "timedOut": null,
+              "duration": 1345,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\ngerarNomeUnicoConta(nomeBase).then(nomeConta1 => {\n  gerarNomeUnicoConta(nomeBase).then(nomeConta2 => {\n    _ContasPage.default.adicionarConta(nomeConta1);\n    _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n    _ContasPage.default.adicionarConta(nomeConta2);\n    _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n  });\n});\n_MovimentacoesPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao1 => {\n  (0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao2 => {\n    _MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', nomeMovimentacao1, 'Empresa XYZ', '15/03/2025', '15/03/2025', 'Pago');\n    _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n    _MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', nomeMovimentacao2, 'Proprietário', '10/03/2025', '10/03/2025', 'Pendente');\n    _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n  });\n});",
+              "err": {
+                "message": "ReferenceError: gerarNomeUnicoConta is not defined",
+                "estack": "ReferenceError: gerarNomeUnicoConta is not defined\n    at Context.eval (webpack://code/./cypress/e2e/specs/movimentacoes.cy.js:33:8)\n    at runnable.fn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:139129:19)\n    at callFn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:157729:21)\n    at Runnable.run (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:157716:7)\n    at <unknown> (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:163646:30)\n    at PassThroughHandlerContext.finallyHandler (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "1fbff65a-9846-44aa-adf1-1cd6c5b6eafe",
+              "parentUUID": "080ec649-fb32-4558-a3bf-59f4517b6fa1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve criar no mínimo 2 movimentações para cada situação",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações para cada situação",
+              "timedOut": null,
+              "duration": 1778,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao => {\n  _MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', nomeMovimentacao, 'Empresa XYZ', '15/03/2025', '15/03/2025', 'Pago');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n  _MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', nomeMovimentacao, 'Proprietário', '10/03/2025', '10/03/2025', 'Pendente');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n});",
+              "err": {
+                "message": "TypeError: (0 , _incrementarNomeDaConta.gerarNomeUnicoMovimentacao) is not a function",
+                "estack": "TypeError: (0 , _incrementarNomeDaConta.gerarNomeUnicoMovimentacao) is not a function\n    at Context.eval (webpack://code/./cypress/e2e/specs/movimentacoes.cy.js:56:35)\n    at runnable.fn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:139129:19)\n    at callFn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:157729:21)\n    at Runnable.run (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:157716:7)\n    at <unknown> (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:163646:30)\n    at PassThroughHandlerContext.finallyHandler (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "a4e5e6af-6a84-4e9e-8470-16b2d0c8b9fd",
+              "parentUUID": "080ec649-fb32-4558-a3bf-59f4517b6fa1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve criar no mínimo 2 movimentações para meses diferentes",
+              "fullTitle": "Fluxo de Criar Movimentação Deve criar no mínimo 2 movimentações para meses diferentes",
+              "timedOut": null,
+              "duration": 1372,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\n(0, _incrementarNomeDaConta.gerarNomeUnicoMovimentacao)(nomeBase).then(nomeMovimentacao => {\n  _MovimentacoesPage.default.criarMovimentacao('Receita', 'Salário', '1000', nomeMovimentacao, 'Empresa XYZ', '15/03/2025', '15/03/2025', 'Pago');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n  _MovimentacoesPage.default.criarMovimentacao('Despesa', 'Aluguel', '800', nomeMovimentacao, 'Proprietário', '15/02/2025', '15/02/2025', 'Pendente');\n  _MovimentacoesPage.default.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n});",
+              "err": {
+                "message": "TypeError: (0 , _incrementarNomeDaConta.gerarNomeUnicoMovimentacao) is not a function",
+                "estack": "TypeError: (0 , _incrementarNomeDaConta.gerarNomeUnicoMovimentacao) is not a function\n    at Context.eval (webpack://code/./cypress/e2e/specs/movimentacoes.cy.js:67:35)\n    at runnable.fn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:139129:19)\n    at callFn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:157729:21)\n    at Runnable.run (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:157716:7)\n    at <unknown> (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:163646:30)\n    at PassThroughHandlerContext.finallyHandler (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:4042:23)\n    at PassThroughHandlerContext.tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1546:18)",
+                "diff": null
+              },
+              "uuid": "0541c148-3e52-42ee-8195-f8ae7e3da79a",
+              "parentUUID": "080ec649-fb32-4558-a3bf-59f4517b6fa1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar os campos de data",
+              "fullTitle": "Fluxo de Criar Movimentação Deve validar os campos de data",
+              "timedOut": null,
+              "duration": 2127,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\ncy.get('#data_transacao').type('data inválida');\ncy.get('#data_pagamento').type('data inválida');\ncy.get('.btn').contains('Salvar').click();\ncy.contains('Data da Movimentação inválida (DD/MM/YYYY)').should('be.visible');\ncy.contains('Data da Movimentação deve ser menor ou igual à data atual').should('be.visible');\ncy.contains('Data do pagamento inválida (DD/MM/YYYY)').should('be.visible');",
+              "err": {},
+              "uuid": "0089c3ec-0cb3-442e-be05-5f5cb2b69b73",
+              "parentUUID": "080ec649-fb32-4558-a3bf-59f4517b6fa1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar o campo valor",
+              "fullTitle": "Fluxo de Criar Movimentação Deve validar o campo valor",
+              "timedOut": null,
+              "duration": 1819,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_MovimentacoesPage.default.visit();\ncy.get('#valor').type('valor inválido');\ncy.get('.btn').contains('Salvar').click();\n_MovimentacoesPage.default.validarCampoValorInvalido();",
+              "err": {},
+              "uuid": "d4380ce1-1da8-4f7a-add6-60ac9c8dec33",
+              "parentUUID": "080ec649-fb32-4558-a3bf-59f4517b6fa1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0089c3ec-0cb3-442e-be05-5f5cb2b69b73",
+            "d4380ce1-1da8-4f7a-add6-60ac9c8dec33"
+          ],
+          "failures": [
+            "345def87-4b5c-4245-9e05-79b671e5062c",
+            "1fbff65a-9846-44aa-adf1-1cd6c5b6eafe",
+            "a4e5e6af-6a84-4e9e-8470-16b2d0c8b9fd",
+            "0541c148-3e52-42ee-8195-f8ae7e3da79a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 9910,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

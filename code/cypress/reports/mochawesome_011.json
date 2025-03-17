@@ -1,0 +1,188 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 4,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-03-17T21:00:24.476Z",
+    "end": "2025-03-17T21:00:37.532Z",
+    "duration": 13056,
+    "testsRegistered": 5,
+    "passPercent": 80,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f34d6f49-9d9c-4a6e-bded-73f4d897f72e",
+      "title": "",
+      "fullFile": "cypress/e2e/specs/contas.cy.js",
+      "file": "cypress/e2e/specs/contas.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9db6f9ae-ba8b-427c-be0d-9ba436ba27e5",
+          "title": "Fluxo de Gestão de Contas",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve adicionar no mínimo 2 contas",
+              "fullTitle": "Fluxo de Gestão de Contas Deve adicionar no mínimo 2 contas",
+              "timedOut": null,
+              "duration": 3164,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\n(0, _incrementarNomeDaConta.default)(nomeBase).then(nomeConta1 => {\n  (0, _incrementarNomeDaConta.default)(nomeBase).then(nomeConta2 => {\n    _ContasPage.default.adicionarConta(nomeConta1);\n    _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n    _ContasPage.default.adicionarConta(nomeConta2);\n    _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n  });\n});",
+              "err": {},
+              "uuid": "90dde684-933e-4f02-86b1-029d08ead8b9",
+              "parentUUID": "9db6f9ae-ba8b-427c-be0d-9ba436ba27e5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve listar todas as contas",
+              "fullTitle": "Fluxo de Gestão de Contas Deve listar todas as contas",
+              "timedOut": null,
+              "duration": 1399,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\n_ContasPage.default.listarContas().should('have.length.at.least', 2);",
+              "err": {},
+              "uuid": "90b8b645-7515-45a5-95db-a53482487e3f",
+              "parentUUID": "9db6f9ae-ba8b-427c-be0d-9ba436ba27e5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve alterar o nome de uma conta",
+              "fullTitle": "Fluxo de Gestão de Contas Deve alterar o nome de uma conta",
+              "timedOut": null,
+              "duration": 2772,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\n(0, _incrementarNomeDaConta.default)(nomeBase).then(nomeConta => {\n  _ContasPage.default.adicionarConta(nomeConta);\n  _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n  const nomeEditado = _ContasPage.default.alterarNomeConta(nomeConta);\n  cy.contains('table tbody tr', nomeEditado).should('be.visible');\n});",
+              "err": {},
+              "uuid": "0067370d-c377-4b90-94f3-21cfbe6e0656",
+              "parentUUID": "9db6f9ae-ba8b-427c-be0d-9ba436ba27e5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve tentar adicionar uma conta com o nome já existente",
+              "fullTitle": "Fluxo de Gestão de Contas Deve tentar adicionar uma conta com o nome já existente",
+              "timedOut": null,
+              "duration": 2776,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\n(0, _incrementarNomeDaConta.default)(nomeBase).then(nomeConta => {\n  _ContasPage.default.adicionarConta(nomeConta);\n  _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n  _ContasPage.default.adicionarConta(nomeConta);\n  _ContasPage.default.validarMensagemErro('Já existe uma conta com esse nome!');\n});",
+              "err": {},
+              "uuid": "c6c4c293-dfd1-4f52-bb24-cbc00a4ea678",
+              "parentUUID": "9db6f9ae-ba8b-427c-be0d-9ba436ba27e5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve tentar excluir uma conta vinculada a uma movimentação",
+              "fullTitle": "Fluxo de Gestão de Contas Deve tentar excluir uma conta vinculada a uma movimentação",
+              "timedOut": null,
+              "duration": 1601,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_ContasPage.default.visit();\n(0, _incrementarNomeDaConta.default)(nomeBase).then(nomeConta => {\n  _ContasPage.default.adicionarConta(nomeConta);\n  _ContasPage.default.validarMensagemSucesso('Conta adicionada com sucesso!');\n  MovimentacoesPage.visit();\n  MovimentacoesPage.criarMovimentacao('Receita', 'Salário', '1000', nomeConta, 'Empresa XYZ', '12/03/2025', '12/03/2025', 'Pago');\n  MovimentacoesPage.validarMensagemSucesso('Movimentação adicionada com sucesso!');\n  _ContasPage.default.visit();\n  _ContasPage.default.excluirConta(nomeConta);\n  _ContasPage.default.validarMensagemErro('Conta em uso na movimentações');\n});",
+              "err": {
+                "message": "ReferenceError: MovimentacoesPage is not defined",
+                "estack": "ReferenceError: MovimentacoesPage is not defined\n    at Context.eval (webpack://code/./cypress/e2e/specs/contas.cy.js:61:12)\n    at getRet (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118349:20)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118360:66)\n    at Context.then (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:118611:21)\n    at wrapped (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:138862:19)\n    at <unknown> (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:144789:15)\n    at tryCatcher (https://seubarriga.wcaquino.me/__cypress/runner/cypress_runner.js:1777:23)",
+                "diff": null
+              },
+              "uuid": "550f9f9d-74a6-43d5-aad3-8b600bb8bd69",
+              "parentUUID": "9db6f9ae-ba8b-427c-be0d-9ba436ba27e5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "90dde684-933e-4f02-86b1-029d08ead8b9",
+            "90b8b645-7515-45a5-95db-a53482487e3f",
+            "0067370d-c377-4b90-94f3-21cfbe6e0656",
+            "c6c4c293-dfd1-4f52-bb24-cbc00a4ea678"
+          ],
+          "failures": [
+            "550f9f9d-74a6-43d5-aad3-8b600bb8bd69"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 11712,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
