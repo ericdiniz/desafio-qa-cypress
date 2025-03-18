@@ -1,0 +1,164 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-03-18T13:29:45.397Z",
+    "end": "2025-03-18T13:29:52.780Z",
+    "duration": 7383,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a2f800f5-53ac-4b6a-9cec-4d0f81b380f2",
+      "title": "",
+      "fullFile": "cypress/e2e/specs/login.cy.js",
+      "file": "cypress/e2e/specs/login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "452b3378-00da-4749-a36c-d617b5244d5d",
+          "title": "Fluxo de Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve criar um novo usuário com sucesso",
+              "fullTitle": "Fluxo de Login Deve criar um novo usuário com sucesso",
+              "timedOut": null,
+              "duration": 2193,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage.default.visit();\n_LoginPage.default.criarNovoUsuario(usuarios.nome, novoEmail, usuarios.senha);\n_LoginPage.default.validarMensagemSucesso('Usuário inserido com sucesso');",
+              "err": {},
+              "uuid": "6a704c52-0363-4d93-99cb-880582c228bc",
+              "parentUUID": "452b3378-00da-4749-a36c-d617b5244d5d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve validar que o sistema só permite login com usuário cadastrado",
+              "fullTitle": "Fluxo de Login Deve validar que o sistema só permite login com usuário cadastrado",
+              "timedOut": null,
+              "duration": 965,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage.default.visit();\n_LoginPage.default.fazerLogin('nao_cadastrado@exemplo.com', usuarios.senha);\n_LoginPage.default.validarMensagemErro('Problemas com o login do usuário');",
+              "err": {},
+              "uuid": "65983675-db62-45c3-9fb4-f197eedcb33a",
+              "parentUUID": "452b3378-00da-4749-a36c-d617b5244d5d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve realizar login com sucesso",
+              "fullTitle": "Fluxo de Login Deve realizar login com sucesso",
+              "timedOut": null,
+              "duration": 1636,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage.default.visit();\n_LoginPage.default.fazerLogin(novoEmail, usuarios.senha);\ncy.url().should('eq', 'https://seubarriga.wcaquino.me/logar');\ncy.contains(`Bem vindo, ${usuarios.nome}!`).should('be.visible');",
+              "err": {},
+              "uuid": "4cdb4840-08e3-44f3-b15c-6f8389257171",
+              "parentUUID": "452b3378-00da-4749-a36c-d617b5244d5d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve deslogar do sistema com sucesso",
+              "fullTitle": "Fluxo de Login Deve deslogar do sistema com sucesso",
+              "timedOut": null,
+              "duration": 1792,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_LoginPage.default.visit();\n_LoginPage.default.fazerLogin(novoEmail, usuarios.senha);\n_LoginPage.default.deslogar();\n_LoginPage.default.validarDeslogado();",
+              "err": {},
+              "uuid": "05c74908-4ae7-4f98-b430-2b431b0289f9",
+              "parentUUID": "452b3378-00da-4749-a36c-d617b5244d5d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6a704c52-0363-4d93-99cb-880582c228bc",
+            "65983675-db62-45c3-9fb4-f197eedcb33a",
+            "4cdb4840-08e3-44f3-b15c-6f8389257171",
+            "05c74908-4ae7-4f98-b430-2b431b0289f9"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6586,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "embeddedScreenshots": true,
+        "inlineAssets": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
